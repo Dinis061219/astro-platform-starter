@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jurIA - Inteligência Artificial Jurídica</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo do Chatbot - Barra Lateral */
+        #chatbot-container {
+            position: fixed;
+            right: 0;  /* Posiciona à direita da tela */
+            bottom: 20px; /* Distância do fundo */
+            width: 400px;  /* Largura do chatbot */
+            height: 600px; /* Altura do chatbot */
+            z-index: 9999; /* Para garantir que fique acima de outros elementos */
+            border-radius: 10px;
+            display: none; /* Inicialmente oculto */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px; /* Bordas arredondadas */
+        }
+
+        /* Botão para abrir o Chatbot */
+        #chatbot-toggle {
+            position: fixed;
+            right: 0;
+            bottom: 20px;
+            background-color: #1C64F2;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10000; /* Fica acima de outros elementos */
+        }
+
+        /* Botão Minimizar */
+        #chatbot-minimize {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff704d;
+            color: white;
+            border: none;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Cabeçalho e Menu -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>jurIA GRUPO02</h1>
+            </div>
+            <ul class="menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seções do site -->
+    <section id="home" class="section">
+        <h2>Bem-vindo ao jurIA</h2>
+        <p>Transforme seu escritório com a Inteligência Artificial aplicada ao Direito.</p>
+        <button id="learnMoreBtn">Saiba Mais</button>
+    </section>
+
+    <section id="about" class="section">
+        <h2>Sobre o jurIA</h2>
+        <p>jurIA é uma plataforma inovadora que utiliza inteligência artificial para otimizar processos no setor jurídico,
+            oferecendo soluções inteligentes e rápidas para advogados e clientes.</p>
+    </section>
+
+    <section id="services" class="section">
+        <h2>Serviços</h2>
+        <ul>
+            <li>Consultoria Jurídica Automatizada</li>
+            <li>Análise de Contratos Inteligente</li>
+            <li>Previsão de Resultados de Litígios</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Contato</h2>
+        <form>
+            <input type="text" placeholder="Seu nome" required>
+            <input type="email" placeholder="Seu e-mail" required>
+            <textarea placeholder="Sua mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Chatbot na Lateral -->
+    <div id="chatbot-container">
+        <button id="chatbot-minimize">–</button> <!-- Botão para minimizar -->
+        <iframe 
+            src="https://udify.app/chat/QbU0PAZoQ9P5lzLC" 
+            frameborder="0" 
+            allow="microphone">
+        </iframe>
+    </div>
+
+    <!-- Botão para abrir/fechar o Chatbot -->
+    <button id="chatbot-toggle">💬</button>
+
+    <footer>
+        <p>&copy; 2024 jurIA. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script>
+        window.difyChatbotConfig = {
+            token: '6LUf6hdwKjXW5qYX'
+        };
+
+        // Função para abrir e fechar o chatbot
+        document.getElementById('chatbot-toggle').addEventListener('click', function() {
+            const chatbotContainer = document.getElementById('chatbot-container');
+            if (chatbotContainer.style.display === 'none' || chatbotContainer.style.display === '') {
+                chatbotContainer.style.display = 'block';  // Exibe o chatbot
+            } else {
+                chatbotContainer.style.display = 'none';  // Oculta o chatbot
+            }
+        });
+
+        // Função para minimizar o chatbot
+        document.getElementById('chatbot-minimize').addEventListener('click', function() {
+            const chatbotContainer = document.getElementById('chatbot-container');
+            chatbotContainer.style.display = 'none';  // Oculta o chatbot ao minimizar
+        });
+    </script>
+
+
+</body>
+
+</html>
